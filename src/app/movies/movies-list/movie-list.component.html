@@ -1,0 +1,25 @@
+<div class="movies-list">
+  <ng-container *ngFor="let movie of movies">
+    <!-- movie card -->
+    <p-card [header]="movie.Title" [subheader]="movie.Year">
+      <!-- header -->
+      <ng-template pTemplate="header">
+        <p-image
+          src="{{
+            movie.Poster !== 'N/A' ? movie.Poster : 'assets/default-poster.png'
+          }}"
+          width="400px"
+          height="500px"
+          [alt]="movie.Title"
+        ></p-image>
+      </ng-template>
+      <!-- /header -->
+      <!-- footer -->
+      <ng-template pTemplate="footer">
+        <p-button icon="pi pi-eye" (onClick)="goToMovie(movie.imdbID)"></p-button>
+      </ng-template>
+      <!-- /footer -->
+    </p-card>
+    <!-- /movie card -->
+  </ng-container>
+</div>

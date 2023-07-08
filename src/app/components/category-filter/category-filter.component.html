@@ -1,0 +1,11 @@
+<span class="p-float-label">
+  <p-dropdown
+    name="categorySelect"
+    placeholder="Select category"
+    [options]="categoryOptions"
+    [(ngModel)]="selectedCategory"
+    (onChange)="onCategoryChange()"
+  ></p-dropdown>
+  <label for="float-label">Category</label>
+</span>
+

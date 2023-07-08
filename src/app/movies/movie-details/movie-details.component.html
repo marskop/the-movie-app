@@ -1,0 +1,44 @@
+<div class="movie-details" *ngIf="!loading; else loadingTemplate">
+  <!-- movie card -->
+  <p-card [header]="movie.Title" [subheader]="movie.Year">
+    <!-- header -->
+    <ng-template pTemplate="header">
+      <p-image
+        src="{{
+          movie.Poster !== 'N/A' ? movie.Poster : 'assets/default-poster.png'
+        }}"
+        height="800px"
+        [alt]="movie.Title"
+      ></p-image>
+    </ng-template>
+    <!-- /header -->
+    <p><strong>Released: </strong> {{ movie.Released }}</p>
+    <p><strong>Genre: </strong> {{ movie.Genre }}</p>
+    <p><strong>Director: </strong> {{ movie.Director }}</p>
+    <p><strong>Actors: </strong> {{ movie.Actors }}</p>
+    <p><strong>Plot: </strong> {{ movie.Plot }}</p>
+    <p><strong>Runtime: </strong> {{ movie.Runtime }}</p>
+    <div class="rating">
+      <i class="pi pi-star-fill" style="color: yellow"></i>
+      {{ movie.imdbRating }}
+    </div>
+    <!-- footer -->
+    <ng-template pTemplate="footer">
+      <button
+        pButton
+        pRipple
+        label="Go Back"
+        (click)="goToMovies()"
+      ></button>
+    </ng-template>
+    <!-- /footer -->
+  </p-card>
+  <!-- /movie card -->
+</div>
+<!-- loading template -->
+<ng-template #loadingTemplate>
+  <div class="movie-details">
+    <p-skeleton width="400px" height="800px"></p-skeleton>
+  </div>
+</ng-template>
+<!-- /loading template -->

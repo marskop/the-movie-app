@@ -1,0 +1,52 @@
+<div class="movies-container">
+  <!-- header -->
+  <div class="d-flex justify-content-between">
+    <!-- search -->
+    <app-search (search)="searchMovies($event)"></app-search>
+    <!-- /search -->
+    <!-- category filter -->
+    <app-category-filter
+      (category)="filterMoviesByCategory($event)"
+    ></app-category-filter>
+    <!-- /category filter -->
+  </div>
+  <!-- /header -->
+  <!-- movie list -->
+  <ng-container *ngIf="loading; else movieList">
+    <div class="movies-list">
+      <p-skeleton
+        *ngFor="let skeleton of skeletonMovies"
+        width="400px"
+        height="500px"
+      ></p-skeleton>
+    </div>
+  </ng-container>
+
+  <ng-template #movieList>
+    <app-movies-list
+      *ngIf="movies.length > 0"
+      [movies]="movies"
+    ></app-movies-list>
+    <div class="no-results" *ngIf="movies.length === 0">
+      {{ errorMessage }}
+    </div>
+    <div class="no-results" *ngIf="showPrompt">
+      Please enter a title in the searchbar.
+    </div>
+  </ng-template>
+  <!-- /movie list -->
+  <!-- pagination-->
+  <div class="py-4">
+    <p-paginator
+      [first]="first"
+      [rows]="rows"
+      [totalRecords]="totalRecords"
+      (onPageChange)="onPageChange($event)"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="{first} - {last} of {totalRecords}"
+      [showPageLinks]="false"
+      [showFirstLastIcon]="false"
+    ></p-paginator>
+  </div>
+  <!-- /pagination-->
+</div>

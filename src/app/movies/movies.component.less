@@ -1,0 +1,19 @@
+.movies-container {
+  display: grid;
+  grid-template-rows: repeat(2, max-content) 1fr max-content;
+  grid-gap: 40px;
+  height: 90vh;
+}
+
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 400px));
+  grid-gap: 20px;
+  justify-content: space-between;
+}
+
+.loading-state,
+.no-results {
+  text-align: center;
+  margin-top: 20px;
+}

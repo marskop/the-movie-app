@@ -1,1 +1,228 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/md-light-deeppurple/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+
+@brand-color-light: rgb(179, 128, 255);
+@brand-color: rgb(103, 75, 145);
+@brand-color-dark: rgb(63, 46, 102);
+
+@black-color: hsl(0, 0%, 11%);
+@black-absolute: hsl(0, 0%, 0%);
+@white-color: hsl(0, 0%, 100%);
+
+@grayscale-1: #F7F7F7;
+@grayscale-10: #121212;
+
+
+:root {
+  // brand
+  --movie-app-brand-color: @brand-color;
+  // brand fade
+  --movie-app-brand-color-f-lvl1: fade(@brand-color, 4%);
+  --movie-app-brand-color-f-lvl2: fade(@brand-color, 8%);
+  --movie-app-brand-color-f-lvl3: fade(@brand-color, 12%);
+  --movie-app-brand-color-f-lvl4: fade(@brand-color, 16%);
+
+  --movie-app-main-bg-color: screen(fade(@brand-color, 12%), @grayscale-1);
+
+  // text
+  --movie-app-text-color-low-emphasis: fade(@black-absolute, 54%);
+  --movie-app-text-color: fade(@black-absolute, 60%);
+  --movie-app-text-disabled: fade(@black-absolute, 38%);
+
+  // input
+  --movie-app-input-border-color: fade(@black-absolute, 28%);
+  --movie-app-input-border-color-hover: fade(@black-absolute, 28%);
+
+  --movie-app-elevation-bg-lvl1: @white-color;
+  --movie-app-grayscale-f-lvl1: fade(#000, 4%);
+  --movie-app-state-grayscale-hover: var(--movie-app-grayscale-f-lvl1);
+  --movie-app-state-hover: var(--movie-app-brand-color-f-lvl1);
+  --slider-head: #ffffff;
+}
+
+.dark-theme {
+  // background
+  --movie-app-brand-color: @brand-color-light;
+  // brand fade
+  --movie-app-brand-color-f-lvl1: fade(@brand-color-light, 8%);
+  --movie-app-brand-color-f-lvl2: fade(@brand-color-light, 16%);
+  --movie-app-brand-color-f-lvl3: fade(@brand-color-light, 24%);
+  --movie-app-brand-color-f-lvl4: fade(@brand-color-light, 32%);
+
+  --movie-app-main-bg-color: screen(fade(@brand-color, 10%), @grayscale-10);
+
+  // text
+  --movie-app-text-color-low-emphasis: fade(@white-color, 54%);
+  --movie-app-text-color: fade(@white-color, 60%);
+  --movie-app-text-disabled: fade(@white-color, 38%);
+
+  // input
+  --movie-app-input-border-color: fade(@white-color, 28%);
+  --movie-app-input-border-color-hover: fade(@white-color, 28%);
+
+  --movie-app-elevation-bg-lvl1: fade(@white-color, 5%);
+  --movie-app-grayscale-f-lvl1: fade(#fff, 8%);
+  --slider-head: #c2c2c2;
+}
+
+body {
+  background-color: var(--movie-app-main-bg-color);
+  color: var(--movie-app-text-color);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--movie-app-text-color);
+  margin: 0 !important;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: var(--movie-app-brand-color);
+}
+
+
+.p-dropdown {
+  width: 200px;
+  background: transparent;
+  border: 1px solid var(--movie-app-input-border-color);
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border-color: var(--movie-app-input-border-color-hover);
+}
+
+.p-dropdown-panel {
+  background-color: var(--movie-app-main-bg-color);
+}
+
+.p-dropdown .p-dropdown-trigger,
+.p-dropdown .p-dropdown-label.p-placeholder {
+  color: var(--movie-app-text-color);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  white-space: normal;
+  color: var(--movie-app-text-color);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+  color: var(--movie-app-text-color);
+  background-color: var(--movie-app-state-grayscale-hover);
+}
+
+.p-inputtext {
+  color: var(--movie-app-text-color);
+}
+
+.p-float-label>label {
+  color: var(--movie-app-text-color);
+}
+
+// background gradient color for focus and filled status
+.p-float-label .p-inputwrapper-focus~label,
+.p-float-label .p-inputwrapper-filled~label {
+  background: var(--movie-app-main-bg-color);
+}
+
+.p-inputtext {
+  color: var(--movie-app-text-color);
+  background: transparent;
+  border: 1px solid var(--movie-app-input-border-color);
+
+  &::placeholder {
+    color: var(--movie-app-text-disabled);
+  }
+}
+
+
+.p-inputtext:enabled:hover {
+  border-color: var(--movie-app-input-border-color-hover);
+}
+
+.p-card {
+  background-color: var(--movie-app-elevation-bg-lvl1);
+  color: var(--movie-app-text-color);
+}
+
+.p-card .p-card-subtitle {
+  color: var(--movie-app-text-color-low-emphasis);
+}
+
+
+.p-button {
+  color: var(--movie-app-text-color);
+  background: var(--movie-app-brand-color);
+}
+
+.p-button:enabled:hover,
+.p-button:enabled:focus {
+  color: var(--movie-app-text-color);
+  background: var(--movie-app-brand-color);
+}
+
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background-color: rgba(103, 58, 183, 0.5);
+}
+
+.p-inputswitch .p-inputswitch-slider:before {
+  background-color: #c2c2c2;
+}
+
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {
+  background-color: rgba(103, 58, 183, 0.5);
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+  background-color: #c2c2c2;
+}
+
+.p-inputswitch:not(.p-disabled):hover .p-inputswitch-slider:before {
+  box-shadow: 0 0 1px 10px var(--movie-app-brand-color-f-lvl1),
+    0px 3px 1px -2px var(--movie-app-brand-color-f-lvl2),
+    0px 2px 2px 0px var(--movie-app-brand-color-f-lvl3),
+    0px 1px 5px 0px var(--movie-app-brand-color-f-lvl4),
+}
+
+
+.p-card .p-card-content {
+  padding: 0 !important;
+}
+
+
+.p-paginator {
+  background: var(--movie-app-main-bg-color);
+  color: var(--movie-app-text-color);
+  border: 1px solid var(--movie-app-input-border-color-hover);
+}
+
+.p-paginator .p-paginator-current {
+  color: var(--movie-app-text-color);
+}
+
+
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last {
+  color: var(--movie-app-text-color);
+}
+
+.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover,
+.p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
+  color: var(--movie-app-text-color);
+}

@@ -84,7 +84,7 @@ export class MoviesComponent {
   onPageChange(event): void {
     this.first = event.first;
     this.rows = event.rows;
-    this.fetchMovies({ page: event.page })
+    this.fetchMovies({ page: event.page + 1 })
   }
 
   /**

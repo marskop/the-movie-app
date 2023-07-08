@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
-  private readonly apiKey = '9749ea2d';
+  private readonly apiKey = environment.omdbApiKey;
   private readonly baseUrl = `http://www.omdbapi.com/?apikey=${this.apiKey}`;
 
   /**
